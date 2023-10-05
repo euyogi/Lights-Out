@@ -34,7 +34,6 @@
     (is_on p1-0)
     (is_on p1-2)
     (is_on p2-1)
-    (is_broken p2-2)
 )
 
 (:goal (forall (?pos) (not (is_on ?pos))))
