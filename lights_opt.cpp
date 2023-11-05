@@ -13,15 +13,15 @@ std::string domain_text = "(define (domain lights_out) \n\
     (is_adjascent ?a ?b) ; 'b' está ao lado de 'a' \n\
     (is_on ?a) ; 'a' está ligado \n\
     (is_broken ?a) ; 'a' está quebrado (ao ser clicado não vai inverter seu estado) \n\
-    (was_clicked ?a) \n\
+   ;(was_clicked ?a) \n\
 ) \n\
 \n\
 (:action click ; ao clicar num quadrado, inverte o estado dos em volta dele e se ele não for quebrado também inverte seu estado \n\
     :parameters (?a) ; quadrado clicado \n\
-    :precondition (not (was_clicked ?a)) \n\
+   ;:precondition (not (was_clicked ?a)) \n\
 \n\
     :effect (and ; inverte o estado do quadrado clicado se ele não estiver quebrado \n\
-        (was_clicked ?a) \n\
+       ;(was_clicked ?a) \n\
         (when (and (not (is_broken ?a)) (not (is_on ?a))) (is_on ?a)) \n\
         (when (and (not (is_broken ?a)) (is_on ?a)) (not (is_on ?a))) \n\
         (forall (?b) (and ; inverte o estado dos quadrados ao lado do clicado \n\
@@ -125,7 +125,7 @@ int main() {
     std::fclose(domain);
 
     // Chamar planejador:
-    system("/tmp/dir/software/planners/madagascar/M -S 1 -Q domain.pddl problem.pddl -o plan.pddl > /dev/null 2>&1");
+    system("/tmp/dir/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 999999 domain.pddl problem.pddl --plan-file plan.pddl > /dev/null 2>&1");
     remove("domain.pddl");
     remove("problem.pddl");
 
