@@ -1,0 +1,195 @@
+MD
+
+real	7m13.725s
+user	7m13.136s
+sys	0m0.470s
+MDS
+
+real	2m32.033s
+user	2m31.760s
+sys	0m0.161s
+MDP
+
+real	16m23.033s
+user	16m22.339s
+sys	0m0.538s
+MDSP
+
+real	20m27.698s
+user	20m27.160s
+sys	0m0.381s
+MDNC
+
+real	5m5.678s
+user	5m5.248s
+sys	0m0.324s
+MDNCS
+
+real	5m1.131s
+user	5m0.854s
+sys	0m0.177s
+MDNCP
+
+real	20m14.812s
+user	20m14.064s
+sys	0m0.585s
+MDNCSP
+
+real	20m26.464s
+user	20m25.883s
+sys	0m0.422s
+MDO
+
+real	5m6.612s
+user	5m6.181s
+sys	0m0.314s
+MDOS
+
+real	3m37.872s
+user	3m37.621s
+sys	0m0.152s
+MDP
+
+real	17m40.294s
+user	17m39.577s
+sys	0m0.573s
+MDOSP
+
+real	22m9.799s
+user	22m9.152s
+sys	0m0.458s
+Mp
+
+real	27m30.351s
+user	27m29.344s
+sys	0m0.844s
+MpDS
+
+real	7m30.669s
+user	7m30.353s
+sys	0m0.206s
+MpDP
+
+real	22m37.036s
+user	22m36.013s
+sys	0m0.838s
+MpDSP
+
+real	25m0.260s
+user	24m59.571s
+sys	0m0.487s
+MpDNC
+
+real	16m36.154s
+user	16m35.547s
+sys	0m0.459s
+MpDNCS
+
+real	10m1.834s
+user	10m1.468s
+sys	0m0.233s
+MpDNCP
+
+real	25m0.270s
+user	24m59.548s
+sys	0m0.547s
+MpDNCSP
+
+real	25m0.244s
+user	24m59.784s
+sys	0m0.278s
+MpDO
+
+real	17m31.855s
+user	17m31.197s
+sys	0m0.479s
+MpDOS
+
+real	10m1.471s
+user	10m1.069s
+sys	0m0.262s
+MpDOP
+
+real	25m0.273s
+user	24m59.554s
+sys	0m0.536s
+MpDOSP
+
+real	25m0.238s
+user	24m59.776s
+sys	0m0.293s
+MpC
+
+real	27m30.770s
+user	27m26.141s
+sys	0m4.439s
+MpCDS
+
+real	27m30.763s
+user	27m26.066s
+sys	0m4.494s
+MpCDP
+
+real	21m57.134s
+user	21m53.428s
+sys	0m3.525s
+MpCDSP
+
+real	22m1.220s
+user	21m57.399s
+sys	0m3.642s
+MpCDNC
+
+real	17m31.909s
+user	17m29.787s
+sys	0m1.973s
+MpCDNCS
+
+real	17m31.921s
+user	17m29.842s
+sys	0m1.934s
+MpCDNCP
+
+real	25m0.517s
+user	24m58.107s
+sys	0m2.209s
+MpCDNCSP
+
+real	25m0.499s
+user	24m58.212s
+sys	0m2.113s
+MpCDO
+
+real	20m1.900s
+user	19m59.842s
+sys	0m1.885s
+MpCDOS
+
+real	20m1.909s
+user	19m59.851s
+sys	0m1.868s
+MpCDOP
+
+real	25m1.256s
+user	24m58.002s
+sys	0m2.270s
+MpCDOSP
+
+real	25m0.631s
+user	24m58.134s
+sys	0m2.167s
+LFD
+
+real	17m33.920s
+user	17m24.129s
+sys	0m9.166s
+LFDNC
+
+real	6m56.607s
+user	6m49.200s
+sys	0m6.941s
+LFDO
+
+real	6m56.759s
+user	6m49.245s
+sys	0m7.072s
