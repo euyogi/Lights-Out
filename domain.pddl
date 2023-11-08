@@ -1,5 +1,5 @@
 (define (domain lights_out)
-(:requirements :strips :negative-preconditions :conditional-effects)
+(:requirements :strips :negative-preconditions :conditional-effects :universal-preconditions)
 
 (:predicates
     (is_adjascent ?a ?b) ; 'b' está ao lado de 'a'
