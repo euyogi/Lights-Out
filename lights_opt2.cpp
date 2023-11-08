@@ -125,7 +125,7 @@ int main() {
     std::fclose(domain);
 
     // Chamar planejador:
-    system("env -i TIMEOUT=90000 /tmp/dir/software/planners/julia/planner.jl domain.pddl problem.pddl > plan.pddl");
+    system("env -i TIMEOUT=870 /tmp/dir/software/planners/julia/planner.jl domain.pddl problem.pddl > plan.pddl");
     remove("domain.pddl");
     remove("problem.pddl");
 
