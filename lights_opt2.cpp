@@ -7,7 +7,7 @@ std::string str_1 = ")\n\n(:init\n";
 std::string str_2 = ")\n\n(:goal (forall (?pos) (not (is_on ?pos))))\n)\n";
 
 std::string domain_text = "(define (domain lights_out) \n\
-(:requirements :strips :negative-preconditions :conditional-effects) \n\
+(:requirements :strips :negative-preconditions :conditional-effects :universal-preconditions) \n\
 \n\
 (:predicates \n\
     (is_adjascent ?a ?b) ; 'b' está ao lado de 'a' \n\
