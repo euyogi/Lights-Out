@@ -4,10 +4,10 @@
 
 std::string str_0 = "(define (problem lights_out_problem) (:domain lights_out)\n(:objects\n";
 std::string str_1 = ")\n\n(:init\n";
-std::string str_2 = ")\n\n(:goal (\n";
+std::string str_2 = ")\n\n(:goal (and\n";
 
 std::string domain_text = "(define (domain lights_out) \n\
-(:requirements :strips :negative-preconditions)\n\
+(:requirements :strips :negative-preconditions :equality)\n\
 \n\
 (:predicates\n\
     (is_adjascent ?a ?b) ; 'b' está ao lado de 'a'\n\
@@ -18,6 +18,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-off-1 \n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -42,6 +46,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-off-2\n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -66,6 +74,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-off-3\n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -90,6 +102,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-off-4\n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -114,6 +130,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-on-1 \n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -138,6 +158,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-on-2\n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -162,6 +186,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-on-3\n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -186,6 +214,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-on-4\n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -210,6 +242,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-broken-1 \n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -232,6 +268,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-broken-2\n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -254,6 +294,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-broken-3\n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -276,6 +320,10 @@ std::string domain_text = "(define (domain lights_out) \n\
 (:action click-broken-4\n\
     :parameters (?a ?b ?c ?d ?e) \n\
     :precondition (and\n\
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?a ?d)) (not (= ?a ?e))\n\
+        (not (= ?b ?c)) (not (= ?b ?d)) (not (= ?b ?e))\n\
+        (not (= ?c ?d)) (not (= ?c ?e))\n\
+        (not (= ?d ?e))\n\
         (is_adjascent ?a ?b)\n\
         (is_adjascent ?a ?c)\n\
         (is_adjascent ?a ?d)\n\
@@ -294,7 +342,7 @@ std::string domain_text = "(define (domain lights_out) \n\
         (not (is_on ?e))\n\
     )\n\
 )\n\
-)\n")
+)\n";
 
 int main() {
     std::ios::sync_with_stdio(false);
@@ -332,13 +380,14 @@ int main() {
     for (int i = 0; i < map_dimension; ++i) {
         for (int j = 0; j < map_dimension; ++j) {
             std::string pos = "p" + std::to_string(i) + "-" + std::to_string(j);
-
-            if (map[i * map_dimension + j] == 'L' or map[i * map_dimension + j] == 'l') {
+	    char bulb = map[i * map_dimension + j];
+            
+	    if (bulb == 'L' or bulb == 'l') {
                 std::string predicate = "\t(is_on " + pos + ")\n";
                 std::fwrite(predicate.c_str(), predicate.size(), 1, problem);
             }
 
-            if (map[(i * map_dimension + j] == 'd' or map[(i * map_dimension + j] == 'l') {
+            if (bulb == 'd' or bulb == 'l') {
                 std::string predicate = "\t(is_broken " + pos + ")\n";
                 std::fwrite(predicate.c_str(), predicate.size(), 1, problem);
             }
@@ -381,9 +430,9 @@ int main() {
 
     // Escrever goal.
     std::fwrite(str_2.c_str(), str_2.size(), 1, problem);
-    for (int i = 1; i < map_dimension; ++i) {
-        for (int j = 1; j < map_dimension; ++j) {
-            if (j == 1)
+    for (int i = 0; i < map_dimension; ++i) {
+        for (int j = 0; j < map_dimension; ++j) {
+            if (j == 0)
                 std::fwrite("\t", 1, 1, problem);
 
             std::string pos = "(not (is_on p" + std::to_string(i) + "-" + std::to_string(j) + ")) ";
@@ -392,7 +441,7 @@ int main() {
 
         std::fwrite("\n", 1, 1, problem);
     }
-    std::string str_3 = ")\n)";
+    std::string str_3 = "\t)\n)\n)";
     std::fwrite(str_3.c_str(), str_3.size(), 1, problem);
     std::fclose(problem);
 
@@ -402,15 +451,20 @@ int main() {
     std::fclose(domain);
 
     // Chamar planejador:
-    system("/tmp/dir/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 90000 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
+    system("/home/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 890 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
     //remove("domain.pddl");
     //remove("problem.pddl");
 
     FILE* plan = std::fopen("plan.pddl", "r");
 
-    bool primeiro = true, readingX = false, readingY = false;
+    bool primeiro = true, in_click = false, readingX = false, readingY = false;
     while ((c  = std::fgetc(plan)) != EOF) {
-       if (c == 'p') {
+       if (c == 'c') {
+	   in_click = true;
+	   continue;
+       }
+
+       if (in_click and c == 'p') {
            readingY = true;
 
            if (primeiro) {
@@ -433,8 +487,9 @@ int main() {
            std::cout << c;
        }
        else if (readingX) {
-           if (c == ')') {
+           if (c == ' ') {
 	       readingX = false;
+	       in_click = false;
 	       std::cout << ")";
                continue;
 	   }
@@ -447,3 +502,4 @@ int main() {
     std::fclose(plan);
     remove("plan.pddl");
 }
+
