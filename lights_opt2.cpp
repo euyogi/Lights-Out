@@ -403,8 +403,8 @@ int main() {
 
     // Chamar planejador:
     system("/tmp/dir/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 90000 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
-    remove("domain.pddl");
-    remove("problem.pddl");
+    //remove("domain.pddl");
+    //remove("problem.pddl");
 
     FILE* plan = std::fopen("plan.pddl", "r");
 
