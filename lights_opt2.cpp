@@ -380,9 +380,9 @@ int main() {
     for (int i = 0; i < map_dimension; ++i) {
         for (int j = 0; j < map_dimension; ++j) {
             std::string pos = "p" + std::to_string(i) + "-" + std::to_string(j);
-	    char bulb = map[i * map_dimension + j];
+	        char bulb = map[i * map_dimension + j];
             
-	    if (bulb == 'L' or bulb == 'l') {
+	        if (bulb == 'L' or bulb == 'l') {
                 std::string predicate = "\t(is_on " + pos + ")\n";
                 std::fwrite(predicate.c_str(), predicate.size(), 1, problem);
             }

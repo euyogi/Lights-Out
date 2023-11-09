@@ -68,16 +68,17 @@ int main() {
     for (int i = 0; i < map_dimension; ++i) {
         for (int j = 0; j < map_dimension; ++j) {
             std::string pos = "p" + std::to_string(i) + "-" + std::to_string(j);
-
-            if (map[i * map_dimension + j] == 'L' or map[i * map_dimension + j] == 'l') {
+            char bulb = map[i * map_dimension + j];
+                
+            if (bulb == 'L' or bulb == 'l') {
                 std::string predicate = "\t(is_on " + pos + ")\n";
                 std::fwrite(predicate.c_str(), predicate.size(), 1, problem);
             }
 
-            if (map[i * map_dimension + j] == 'd' or map[i * map_dimension + j] == 'l') {
+            if (bulb == 'd' or bulb == 'l') {
                 std::string predicate = "\t(is_broken " + pos + ")\n";
                 std::fwrite(predicate.c_str(), predicate.size(), 1, problem);
-            }
+            }  
         }
     }
 
@@ -125,7 +126,7 @@ int main() {
     std::fclose(domain);
 
     // Chamar planejador:
-    system("/tmp/dir/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 890 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
+    system("/tmp/dir/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 910 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
     remove("domain.pddl");
     remove("problem.pddl");
 
