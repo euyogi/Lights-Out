@@ -7,30 +7,294 @@ std::string str_1 = ")\n\n(:init\n";
 std::string str_2 = ")\n\n(:goal (forall (?pos) (not (is_on ?pos))))\n)\n";
 
 std::string domain_text = "(define (domain lights_out) \n\
-(:requirements :strips :negative-preconditions :conditional-effects :universal-preconditions) \n\
+(:requirements :strips :negative-preconditions :conditional-effects :universal-preconditions)\n\
 \n\
-(:predicates \n\
-    (is_adjascent ?a ?b) ; 'b' está ao lado de 'a' \n\
-    (is_on ?a) ; 'a' está ligado \n\
-    (is_broken ?a) ; 'a' está quebrado (ao ser clicado não vai inverter seu estado) \n\
-    (was_clicked ?a) \n\
-) \n\
+(:predicates\n\
+    (is_adjascent ?a ?b) ; 'b' está ao lado de 'a'\n\
+    (is_on ?a) ; 'a' está ligado\n\
+    (is_broken ?a) ; 'a' está quebrado (ao ser clicado não vai inverter seu estado)\n\
+)\n\
 \n\
-(:action click ; ao clicar num quadrado, inverte o estado dos em volta dele e se ele não for quebrado também inverte seu estado \n\
-    :parameters (?a) ; quadrado clicado \n\
-    :precondition (not (was_clicked ?a)) \n\
+(:action click-off-1 \n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (not (is_broken ?a))\n\
+        (not (is_on ?a))\n\
+        (is_on ?b)\n\
+        (not (is_on ?c))\n\
+        (not (is_on ?d))\n\
+        (not (is_on ?e))\n\
+    )\n\
 \n\
-    :effect (and ; inverte o estado do quadrado clicado se ele não estiver quebrado \n\
-        (was_clicked ?a) \n\
-        (when (and (not (is_broken ?a)) (not (is_on ?a))) (is_on ?a)) \n\
-        (when (and (not (is_broken ?a)) (is_on ?a)) (not (is_on ?a))) \n\
-        (forall (?b) (and ; inverte o estado dos quadrados ao lado do clicado \n\
-            (when (and (is_adjascent ?a ?b) (not (is_on ?b))) (is_on ?b)) \n\
-            (when (and (is_adjascent ?a ?b) (is_on ?b)) (not (is_on ?b))) \n\
-        )) \n\
-    ) \n\
-) \n\
-)\n";
+    :effect (and\n\
+        (is_on ?a)\n\
+        (not (is_on ?b))\n\
+        (is_on ?c)\n\
+        (is_on ?d)\n\
+        (is_on ?e)\n\
+    )\n\
+)\n\
+\n\
+(:action click-off-2\n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (not (is_broken ?a))\n\
+        (not (is_on ?a))\n\
+        (is_on ?b)\n\
+        (is_on ?c)\n\
+        (not (is_on ?d))\n\
+        (not (is_on ?e))\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (is_on ?a)\n\
+        (not (is_on ?b))\n\
+        (not (is_on ?c))\n\
+        (is_on ?d)\n\
+        (is_on ?e)\n\
+    )\n\
+)\n\
+\n\
+(:action click-off-3\n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (not (is_broken ?a))\n\
+        (not (is_on ?a))\n\
+        (is_on ?b)\n\
+        (is_on ?c)\n\
+        (is_on ?d)\n\
+        (not (is_on ?e))\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (is_on ?a)\n\
+        (not (is_on ?b))\n\
+        (not (is_on ?c))\n\
+        (not (is_on ?d))\n\
+        (is_on ?e)\n\
+    )\n\
+)\n\
+\n\
+(:action click-off-4\n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (not (is_broken ?a))\n\
+        (not (is_on ?a))\n\
+        (is_on ?b)\n\
+        (is_on ?c)\n\
+        (is_on ?d)\n\
+        (is_on ?e)\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (is_on ?a)\n\
+        (not (is_on ?b))\n\
+        (not (is_on ?c))\n\
+        (not (is_on ?d))\n\
+        (not (is_on ?e))\n\
+    )\n\
+)\n\
+\n\
+(:action click-on-1 \n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (not (is_broken ?a))\n\
+        (is_on ?a)\n\
+        (is_on ?b)\n\
+        (not (is_on ?c))\n\
+        (not (is_on ?d))\n\
+        (not (is_on ?e))\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (not (is_on ?a))\n\
+        (not (is_on ?b))\n\
+        (is_on ?c)\n\
+        (is_on ?d)\n\
+        (is_on ?e)\n\
+    )\n\
+)\n\
+\n\
+(:action click-on-2\n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (not (is_broken ?a))\n\
+        (is_on ?a)\n\
+        (is_on ?b)\n\
+        (is_on ?c)\n\
+        (not (is_on ?d))\n\
+        (not (is_on ?e))\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (not (is_on ?a))\n\
+        (not (is_on ?b))\n\
+        (not (is_on ?c))\n\
+        (is_on ?d)\n\
+        (is_on ?e)\n\
+    )\n\
+)\n\
+\n\
+(:action click-on-3\n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (not (is_broken ?a))\n\
+        (is_on ?a)\n\
+        (is_on ?b)\n\
+        (is_on ?c)\n\
+        (is_on ?d)\n\
+        (not (is_on ?e))\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (not (is_on ?a))\n\
+        (not (is_on ?b))\n\
+        (not (is_on ?c))\n\
+        (not (is_on ?d))\n\
+        (is_on ?e)\n\
+    )\n\
+)\n\
+\n\
+(:action click-on-4\n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (not (is_broken ?a))\n\
+        (is_on ?a)\n\
+        (is_on ?b)\n\
+        (is_on ?c)\n\
+        (is_on ?d)\n\
+        (is_on ?e)\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (not (is_on ?a))\n\
+        (not (is_on ?b))\n\
+        (not (is_on ?c))\n\
+        (not (is_on ?d))\n\
+        (not (is_on ?e))\n\
+    )\n\
+)\n\
+\n\
+(:action click-broken-1 \n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (is_broken ?a)\n\
+        (is_on ?b)\n\
+        (not (is_on ?c))\n\
+        (not (is_on ?d))\n\
+        (not (is_on ?e))\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (not (is_on ?b))\n\
+        (is_on ?c)\n\
+        (is_on ?d)\n\
+        (is_on ?e)\n\
+    )\n\
+)\n\
+\n\
+(:action click-broken-2\n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (is_broken ?a)\n\
+        (is_on ?b)\n\
+        (is_on ?c)\n\
+        (not (is_on ?d))\n\
+        (not (is_on ?e))\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (not (is_on ?b))\n\
+        (not (is_on ?c))\n\
+        (is_on ?d)\n\
+        (is_on ?e)\n\
+    )\n\
+)\n\
+\n\
+(:action click-broken-3\n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (is_broken ?a)\n\
+        (is_on ?b)\n\
+        (is_on ?c)\n\
+        (is_on ?d)\n\
+        (not (is_on ?e))\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (not (is_on ?b))\n\
+        (not (is_on ?c))\n\
+        (not (is_on ?d))\n\
+        (is_on ?e)\n\
+    )\n\
+)\n\
+\n\
+(:action click-broken-4\n\
+    :parameters (?a ?b ?c ?d ?e) \n\
+    :precondition (and\n\
+        (is_adjascent ?a ?b)\n\
+        (is_adjascent ?a ?c)\n\
+        (is_adjascent ?a ?d)\n\
+        (is_adjascent ?a ?e)\n\
+        (is_broken ?a)\n\
+        (is_on ?b)\n\
+        (is_on ?c)\n\
+        (is_on ?d)\n\
+        (is_on ?e)\n\
+    )\n\
+\n\
+    :effect (and\n\
+        (not (is_on ?b))\n\
+        (not (is_on ?c))\n\
+        (not (is_on ?d))\n\
+        (not (is_on ?e))\n\
+    )\n\
+)\n\
+)")
 
 int main() {
     std::ios::sync_with_stdio(false);
