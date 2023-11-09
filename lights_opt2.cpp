@@ -310,12 +310,12 @@ int main() {
     char c;
     while (std::cin >> c)
         map += c;
-    int map_dimension = sqrt(map.size()) + 1; // Mapas são n x n.
+    int map_dimension = sqrt(map.size()); // Mapas são n x n.
 
     // Escrever cada posição do mapa.
-    for (int i = 0; i < map_dimension; ++i) {
-        for (int j = 0; j < map_dimension; ++j) {
-            if (j == 0)
+    for (int i = -1; i <= map_dimension; ++i) {
+        for (int j = -1; j <= map_dimension; ++j) {
+            if (j == -1)
                 std::fwrite("\t", 1, 1, problem);
 
             std::string pos = "p" + std::to_string(i) + "-" + std::to_string(j) + " ";
@@ -329,16 +329,16 @@ int main() {
     std::fwrite(str_1.c_str(), str_1.size(), 1, problem);
 
      // Escrever os predicados.
-    for (int i = 1; i < map_dimension - 1; ++i) {
-        for (int j = 1; j < map_dimension - 1; ++j) {
+    for (int i = 0; i < map_dimension; ++i) {
+        for (int j = 0; j < map_dimension; ++j) {
             std::string pos = "p" + std::to_string(i) + "-" + std::to_string(j);
 
-            if (map[(i - 1) * (map_dimension - 1) + j - 1] == 'L' or map[(i - 1) * (map_dimension - 1) + j - 1] == 'l') {
+            if (map[i * map_dimension + j] == 'L' or map[i * map_dimension + j] == 'l') {
                 std::string predicate = "\t(is_on " + pos + ")\n";
                 std::fwrite(predicate.c_str(), predicate.size(), 1, problem);
             }
 
-            if (map[(i - 1) * (map_dimension - 1) + j - 1] == 'd' or map[(i - 1) * (map_dimension - 1) + j - 1] == 'l') {
+            if (map[(i * map_dimension + j] == 'd' or map[(i * map_dimension + j] == 'l') {
                 std::string predicate = "\t(is_broken " + pos + ")\n";
                 std::fwrite(predicate.c_str(), predicate.size(), 1, problem);
             }
@@ -348,14 +348,14 @@ int main() {
     std::fwrite("\n", 1, 1, problem);
 
     // Escrever as posições adjascentes.
-    for (int i = 0; i < map_dimension; ++i) {
-        for (int j = 0, a = -1; j < map_dimension; ++j) {
+    for (int i = -1; i <= map_dimension; ++i) {
+        for (int j = -1, a = -2; j <= map_dimension; ++j) {
             int dirs[] = { -1, 0, 1, 0, -1 };
 
             for (int k = 0; k < 4; ++k) {
                 int x = j + dirs[k], y = i + dirs[k + 1];
 
-                if (x < 0 or x > map_dimension or y < 0 or y > map_dimension)
+                if (x < -1 or x > map_dimension + 1 or y < -1 or y > map_dimension + 1)
                     continue;
 
 		std::string predicate;
@@ -381,8 +381,8 @@ int main() {
 
     // Escrever goal.
     std::fwrite(str_2.c_str(), str_2.size(), 1, problem);
-    for (int i = 1; i < map_dimension - 1; ++i) {
-        for (int j = 1; j < map_dimension - 1; ++j) {
+    for (int i = 1; i < map_dimension; ++i) {
+        for (int j = 1; j < map_dimension; ++j) {
             if (j == 1)
                 std::fwrite("\t", 1, 1, problem);
 
