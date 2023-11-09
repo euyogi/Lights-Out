@@ -125,7 +125,7 @@ int main() {
     std::fclose(domain);
 
     // Chamar planejador:
-    system("env -i TIMEOUT=870 /tmp/dir/software/planners/julia/planner.jl domain.pddl problem.pddl > plan.pddl");
+    system("/tmp/dir/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 90000 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
     remove("domain.pddl");
     remove("problem.pddl");
 
