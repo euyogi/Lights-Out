@@ -125,7 +125,7 @@ int main() {
     std::fclose(domain);
 
     // Chamar planejador:
-    system("/tmp/dir/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 999999 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
+    system("/tmp/dir/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 890 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
     remove("domain.pddl");
     remove("problem.pddl");
 
