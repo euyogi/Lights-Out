@@ -451,9 +451,9 @@ int main() {
     std::fclose(domain);
 
     // Chamar planejador:
-    system("/home/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 890 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
-    //remove("domain.pddl");
-    //remove("problem.pddl");
+    system("/tmp/dir/software/planners/downward/fast-downward.py --alias seq-opt-fdss-2 --overall-time-limit 890 --plan-file plan.pddl domain.pddl problem.pddl > /dev/null 2>&1");
+    remove("domain.pddl");
+    remove("problem.pddl");
 
     FILE* plan = std::fopen("plan.pddl", "r");
 
