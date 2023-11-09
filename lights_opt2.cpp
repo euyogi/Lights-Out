@@ -4,7 +4,7 @@
 
 std::string str_0 = "(define (problem lights_out_problem) (:domain lights_out)\n(:objects\n";
 std::string str_1 = ")\n\n(:init\n";
-std::string str_2 = ")\n\n(:goal (\y";
+std::string str_2 = ")\n\n(:goal (\n";
 
 std::string domain_text = "(define (domain lights_out) \n\
 (:requirements :strips :negative-preconditions)\n\
