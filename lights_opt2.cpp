@@ -4,10 +4,10 @@
 
 std::string str_0 = "(define (problem lights_out_problem) (:domain lights_out)\n(:objects\n";
 std::string str_1 = ")\n\n(:init\n";
-std::string str_2 = ")\n\n(:goal (forall (?pos) (not (is_on ?pos))))\n)\n";
+std::string str_2 = ")\n\n(:goal (\y";
 
 std::string domain_text = "(define (domain lights_out) \n\
-(:requirements :strips :negative-preconditions :conditional-effects :universal-preconditions)\n\
+(:requirements :strips :negative-preconditions)\n\
 \n\
 (:predicates\n\
     (is_adjascent ?a ?b) ; 'b' está ao lado de 'a'\n\
@@ -294,7 +294,7 @@ std::string domain_text = "(define (domain lights_out) \n\
         (not (is_on ?e))\n\
     )\n\
 )\n\
-)")
+)\n")
 
 int main() {
     std::ios::sync_with_stdio(false);
@@ -381,6 +381,19 @@ int main() {
 
     // Escrever goal.
     std::fwrite(str_2.c_str(), str_2.size(), 1, problem);
+    for (int i = 0; i < map_dimension; ++i) {
+        for (int j = 0; j < map_dimension; ++j) {
+            if (j == 0)
+                std::fwrite("\t", 1, 1, problem);
+
+            std::string pos = "(not (is_on p" + std::to_string(i) + "-" + std::to_string(j) + ")) ";
+            std::fwrite(pos.c_str(), pos.size(), 1, problem);
+        }
+
+        std::fwrite("\n", 1, 1, problem);
+    }
+    std::string str_3 = ")\n)";
+    std::fwrite(str_3.c_str(), str_3.size(), 1, problem);
     std::fclose(problem);
 
     // Criar e escrever domínio:
