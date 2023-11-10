@@ -16,8 +16,7 @@ std::string domain_text = "(define (domain lights_out) \n\
    ;(was_clicked ?a) \n\
 ) \n\
 \n\
-(:action click ; ao clicar num quadrado, inverte o estado dos em volta dele e se ele não for quebrado também inverte seu
- estado \n\
+(:action click ; ao clicar num quadrado, inverte o estado dos em volta dele e se ele não for quebrado também inverte seu estado \n\
     :parameters (?a) ; quadrado clicado \n\
    ;:precondition (not (was_clicked ?a)) \n\
 \n\
