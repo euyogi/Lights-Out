@@ -417,9 +417,9 @@ int main() {
     for (int i = 0; i < map_dimension; ++i) {
         for (int j = 0; j < map_dimension; ++j) {
             std::string pos = "p" + std::to_string(i) + "-" + std::to_string(j);
-                char bulb = map[i * map_dimension + j];
+            char bulb = map[i * map_dimension + j];
 
-                if (bulb == 'L' or bulb == 'l') {
+            if (bulb == 'L' or bulb == 'l') {
                 std::string predicate = "\t(is_on " + pos + ")\n";
                 std::fwrite(predicate.c_str(), predicate.size(), 1, problem);
                 std::fwrite(predicate.c_str(), predicate.size(), 1, problem2);
@@ -437,7 +437,7 @@ int main() {
     for (int i = -1; i <= map_dimension; ++i) {
         for (int j = -1, a = -2; j <= map_dimension; ++j) {
             int dirs[] = { -1, 0, 1, 0, -1 };
-            if (j>=0 and j < map_dimension and i >=0 and i< map_dimension)
+            if (j >= 0 and j < map_dimension and i >= 0 and i < map_dimension)
                 std::fwrite("\t", 1, 1, problem);
             std::fwrite("\t", 1, 1, problem2);
             for (int k = 0; k < 4; ++k) {
@@ -446,14 +446,7 @@ int main() {
                 if (x < -1 or x > map_dimension + 1 or y < -1 or y > map_dimension + 1)
                     continue;
 
-                std::string predicate;
-
-                //if (j != a) {
-                  //  predicate += "\t";
-                   // a = j;
-                //}
-
-                predicate += "(is_adjascent ";
+                std::string predicate = "(is_adjascent ";
                 predicate += "p" + std::to_string(i) + "-" + std::to_string(j);
                 predicate += " p" + std::to_string(y) + "-" + std::to_string(x);
                 predicate += ") ";
@@ -514,10 +507,10 @@ int main() {
         plan = std::fopen("plan.pddl", "r");
     }
 
-      remove("domain.pddl");
-      remove("domain2.pddl");
-      remove("problem.pddl");
-      remove("problem2.pddl");
+    remove("domain.pddl");
+    remove("domain2.pddl");
+    remove("problem.pddl");
+    remove("problem2.pddl");
 
     bool primeiro = true, in_click = false, readingX = false, readingY = false;
     while ((c  = std::fgetc(plan)) != EOF) {
