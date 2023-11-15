@@ -176,11 +176,12 @@ int main() {
     }
     
     if (steps2 > 0 && steps2 < steps) {
-        std::fclose(plan)
+        std::fclose(plan);
         plan = plan2;
     }
     
     remove("domain.pddl");
+    remove("domain2.pddl");
     remove("problem.pddl");
 
     bool primeiro = true, readingX = false, readingY = false;
