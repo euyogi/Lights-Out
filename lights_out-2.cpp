@@ -498,7 +498,7 @@ int main() {
     std::fclose(domain2);
 
     // Chamar planejador:
-    system("/tmp/dir/software/planners/madagascar/M -S 1 -Q -t 5 domain.pddl problem.pddl -o plan.pddl > /dev/null 2>&1");
+    system("/tmp/dir/software/planners/madagascar/M -S 1 -Q -t 4 domain.pddl problem.pddl -o plan.pddl > /dev/null 2>&1");
     FILE* plan = std::fopen("plan.pddl", "r");
 
     if (plan == NULL) {
