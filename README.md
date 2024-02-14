@@ -43,4 +43,8 @@ do plano gerado a partir desses dois arquivos.
 Está ajustado para resolver os planos de forma rápida, assim não necessariamente teremos planos ótimos (menor quantidade de passos possível)
 mas em compensação a geração dos planos não deve demorar muito com o crescimento da complexidade dos mapas.
 
+<p align="center">
+  Feito por: Yogi Nam de Souza Barbosa
+</p>
+
 <img alt="Footer" width=100% src="https://capsule-render.vercel.app/api?type=waving&color=ffff00&height=100&section=footer">
