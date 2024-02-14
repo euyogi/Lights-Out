@@ -33,6 +33,8 @@ planejador Madagascar. Porém, ajustes na leitura do plano podem ser feitos para
 
 Também é necessário especificar o caminho correspondente do planejador no código.
 
+Para executar o programa também é necessário compilá-lo em um .exe com um compilador C++ após as mudanças acima terem sido realizadas.
+
 Para executar o validador é necessário remover as linhas em que os arquivos problema e plano são removidos, pois ele faz a validação
 do plano gerado a partir desses dois arquivos.
 
