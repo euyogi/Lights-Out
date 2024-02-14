@@ -15,7 +15,7 @@ Representando o seguinte mapa do jogo:
 <p align="center"><img alt="Imagem do mapa" width="50%" src="https://github.com/euyogi/Prototipo-LightsOut/assets/46427886/d855805b-162b-4de4-b8e9-ac95b394d5d6"></p>
 
 E o programa dirá as respectivas células que devem ser clicadas para resolver o puzzle com base no plano gerado
-por um planejador PDDL, nesse caso o plano terá apenas um passo e será (1, 1).
+por um planejador <a href="https://planning.wiki/guide/whatis/pddl>PDDL</a>, nesse caso o plano terá apenas um passo e será (1, 1).
 
 <h2>Mapa:</h2>
 
@@ -28,7 +28,7 @@ O puzzle esta resolvido quando todas as células estão desligadas.
 
 <h2>Funcionamento:</h2>
 
-Para funcionar é necessário um planejador PDDL, e nesse caso como extraio cada passo do plano gerado, só funcionará com o
+Para funcionar é necessário um planejador <a href="https://planning.wiki/guide/whatis/pddl>PDDL</a>, e nesse caso como extraio cada passo do plano gerado, só funcionará com o
 planejador Madagascar. Porém, ajustes na leitura do plano podem ser feitos para se adaptar a outro planejador.
 
 Também é necessário especificar o caminho correspondente do planejador no código.
