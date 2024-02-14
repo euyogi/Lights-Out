@@ -14,7 +14,8 @@ Representando o seguinte mapa do jogo:
 
 <p align="center"><img alt="Imagem do mapa" width="50%" src="https://github.com/euyogi/Prototipo-LightsOut/assets/46427886/d855805b-162b-4de4-b8e9-ac95b394d5d6"></p>
 
-E o programa dirá as respectivas células que devem ser clicadas para resolver o puzzle, nesse caso apenas (1, 1).
+E o programa dirá as respectivas células que devem ser clicadas para resolver o puzzle com base no plano gerado
+por um planejador PDDL, nesse caso o plano terá apenas um passo e será (1, 1).
 
 No mapa D representa uma célula desligada, d uma célula desligada com uma lâmpada quebrada, L uma célula ligada, l uma célula ligada com uma lâmpada quebrada.
 
