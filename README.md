@@ -17,6 +17,8 @@ Representando o seguinte mapa do jogo:
 E o programa dirá as respectivas células que devem ser clicadas para resolver o puzzle com base no plano gerado
 por um planejador PDDL, nesse caso o plano terá apenas um passo e será (1, 1).
 
+<h2>Mapa:</h2>
+
 No mapa D representa uma célula desligada, d uma célula desligada com uma lâmpada quebrada, L uma célula ligada, l uma célula ligada com uma lâmpada quebrada.
 
 No jogo, ao clicar em uma célula desligada ou ligada, esta e as adjascentes serão invertidas.
