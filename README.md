@@ -36,4 +36,9 @@ Também é necessário especificar o caminho correspondente do planejador no có
 Para executar o validador é necessário remover as linhas em que os arquivos problema e plano são removidos, pois ele faz a validação
 do plano gerado a partir desses dois arquivos.
 
+<h2>Performance:</h2>
+
+Está ajustado para resolver os planos de forma rápida, assim não necessariamente teremos planos ótimos (menor quantidade de passos possível)
+mas em compensação a geração dos planos não deve demorar muito com o crescimento da complexidade dos mapas.
+
 <img alt="Footer" width=100% src="https://capsule-render.vercel.app/api?type=waving&color=ffff00&height=100&section=footer">
