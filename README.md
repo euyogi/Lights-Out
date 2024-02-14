@@ -29,7 +29,7 @@ O puzzle esta resolvido quando todas as células estão desligadas.
 <h2>Funcionamento:</h2>
 
 Para funcionar é necessário um planejador <a href="https://planning.wiki/guide/whatis/pddl">PDDL</a>, e nesse caso como extraio cada passo do plano gerado, só funcionará com o
-planejador Madagascar. Porém, ajustes na leitura do plano podem ser feitos para se adaptar a outro planejador.
+planejador <a href="https://research.ics.aalto.fi/software/sat/madagascar/">Madagascar</a>. Porém, ajustes na leitura do plano podem ser feitos para se adaptar a outro planejador.
 
 Também é necessário especificar o caminho correspondente do planejador no código.
 
